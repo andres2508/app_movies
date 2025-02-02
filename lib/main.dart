@@ -1,0 +1,15 @@
+import 'package:app_movies/app.dart';
+import 'package:app_movies/framework/router/movie.module.dart';
+import 'package:app_movies/infrastructure/locator/service.locator.dart';
+import 'package:app_movies/ui/home/home.module.dart';
+import 'package:flutter/material.dart';
+
+List<MovieModule> modules = [
+  HomeModule()
+];
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
+  runApp(MovieMobileApp());
+}
