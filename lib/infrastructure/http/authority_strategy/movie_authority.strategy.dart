@@ -4,7 +4,7 @@ import 'package:app_movies/infrastructure/http/http.interceptor.dart';
 
 class MovieDBAuthorityStrategy extends HttpAuthorityStrategy {
   MovieDBAuthorityStrategy()
-      : super(authority: GlobalMovieConfiguration.controller.server);
+      : super(authority: GlobalMovieConfiguration.controller.apiServer);
 
   @override
   void interceptorsInitialize() {

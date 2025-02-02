@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:app_movies/infrastructure/http/authority_strategy/ggce_authority.strategy.dart';
 import 'package:app_movies/infrastructure/http/authority_strategy/http_authority.strategy.dart';
+import 'package:app_movies/infrastructure/http/authority_strategy/movie_authority.strategy.dart';
 import 'package:dio/dio.dart';
 
 typedef ItemCreator<S> = S Function(Map<String, dynamic> json);
