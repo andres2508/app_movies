@@ -1,7 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum LanguageType {
   SPANISH('es'),
@@ -12,7 +10,11 @@ enum LanguageType {
   const LanguageType(this.localeCode);
 }
 
-@riverpod
+final movieLocalizationViewModelProvider =
+    ChangeNotifierProvider<MovieLocalizationViewModel>((ref) {
+  return MovieLocalizationViewModel();
+});
+
 class MovieLocalizationViewModel extends ChangeNotifier {
   LanguageType _type = LanguageType.SPANISH;
 
@@ -28,10 +30,17 @@ class MovieLocalizationViewModel extends ChangeNotifier {
     changeTo(LanguageType.ENGLISH);
   }
 
-  void changeTo(LanguageType? type) {
-    if (type != null) {
-      _type = type;
-      notifyListeners();
+  void toggleLang() {
+    if (_type == LanguageType.SPANISH) {
+      changeToEnglish();
+    } else {
+      changeToSpanish();
     }
+  }
+
+  void changeTo(LanguageType type) {
+    print("into changeTo: $type");
+    _type = type;
+    notifyListeners();
   }
 }
