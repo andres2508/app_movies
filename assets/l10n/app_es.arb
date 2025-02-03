@@ -14,5 +14,14 @@
   "welcome_back": "Bienvenido de nuevo...",
   "search_movie": "Buscar película...",
   "lets_relax": "Vamos a relajarnos y ver una película.",
-  "movie_not_found": "La película no fue encontrada..."
+  "movie_not_found": "La película no fue encontrada...",
+  "reviews_count": "({value} reviews)",
+  "@reviews_count": {
+    "placeholders": {
+      "value": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
+    }
+  }
 }

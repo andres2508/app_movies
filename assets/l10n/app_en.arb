@@ -14,5 +14,14 @@
   "welcome_back": "Welcome back...",
   "search_movie": "Search movie...",
   "lets_relax": "Let's relax and watch a movie",
-  "movie_not_found": "Movie not found..."
+  "movie_not_found": "Movie not found...",
+  "reviews_count": "({value} reviews)",
+  "@reviews_count": {
+    "placeholders": {
+      "value": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
+    }
+  }
 }

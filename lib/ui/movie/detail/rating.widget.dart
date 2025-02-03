@@ -1,4 +1,5 @@
 import 'package:app_movies/styles/color.styles.dart';
+import 'package:app_movies/utils/locale.utils.dart';
 import 'package:flutter/material.dart';
 
 class RatingScore extends StatelessWidget {
@@ -24,7 +25,7 @@ class RatingScore extends StatelessWidget {
           ),
         ),
         Text(
-          '($voteCount reviews)',
+          context.loc().reviews_count(voteCount),
         )
       ],
     );
