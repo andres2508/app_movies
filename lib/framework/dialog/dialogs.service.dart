@@ -1,6 +1,7 @@
 import 'package:app_movies/framework/messages/message.dart';
 import 'package:app_movies/framework/messages/messages.service.dart';
 import 'package:app_movies/infrastructure/locator/service.locator.dart';
+import 'package:app_movies/styles/color.styles.dart';
 import 'package:app_movies/utils/fluro.utils.dart';
 import 'package:app_movies/utils/locale.utils.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +28,16 @@ class DialogsService with MessagesListener {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(title),
-          content: Text(msg.text),
+          title: Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          content: Text(
+            msg.text,
+            style: TextStyle(color: ColorStyles.dark500),
+          ),
           actions: <Widget>[
             TextButton(
               child: const Text("OK"),
