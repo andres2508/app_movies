@@ -1,5 +1,7 @@
 import 'package:app_movies/framework/router/router.builder.dart';
 import 'package:app_movies/infrastructure/localization/localization.provider.dart';
+import 'package:app_movies/infrastructure/localization/localization.service.dart';
+import 'package:app_movies/infrastructure/locator/service.locator.dart';
 import 'package:app_movies/styles/theme.style.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +22,12 @@ class _MovieMobileAppState extends ConsumerState<MovieMobileApp> {
   @override
   Widget build(BuildContext context) {
     final localeProvider = ref.watch(movieLocalizationViewModelProvider);
+    // Update locale observer
+    serviceLocator<LocalizationObserver>().changeTo(localeProvider.locale);
     return MaterialApp(
       title: 'Movies',
       debugShowCheckedModeBanner: false,
-      theme: MovieMaterialTheme.light,
+      theme: MovieMaterialTheme.dark,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

@@ -1,5 +1,6 @@
 {
   "server": "https://api.themoviedb.org",
+  "image_server": "https://image.tmdb.org/t/p/original",
   "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NDM2ZGEwOTMxMGNlNGRmNjA5ZjZjZDVmOTc4YjcxMSIsIm5iZiI6MTczODQ2MTczMi4yNjEsInN1YiI6IjY3OWVkMjI0N2I0MTUzYTNiOTk1NjZiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rrbQguS6joL9gwYiGDhDZWlmXOzs4OktcnCTMYDzl2M",
   "api_key": "5436da09310ce4df609f6cd5f978b711"
 }

@@ -3,25 +3,32 @@ import 'package:app_movies/styles/text.styles.dart';
 import 'package:flutter/material.dart';
 
 class MovieMaterialTheme {
-  static ThemeData light = ThemeData(
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
-    ),
-    primaryColor: ColorStyles.darkColor,
-    primaryColorDark: ColorStyles.darkColor,
-    colorScheme: ColorScheme.fromSeed(seedColor: ColorStyles.darkColor),
-    // fontFamily: GoogleFonts.roboto().fontFamily,
-    cardTheme: CardTheme(
-        color: Colors.white,
-        surfaceTintColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+  static ThemeData dark = ThemeData(
+    primaryColor: ColorStyles.principal500,
+    primaryColorDark: ColorStyles.dark500,
+    colorScheme: ColorScheme.fromSeed(seedColor: ColorStyles.principal500),
+    scaffoldBackgroundColor: ColorStyles.dark500,
     textTheme: TextTheme(
-        titleLarge: TextStyle(fontSize: TextStyles.titleSize),
-        bodyLarge: TextStyle(fontSize: TextStyles.titleSize),
-        labelLarge: TextStyle(fontSize: TextStyles.subtitle2Size),
-        labelMedium: TextStyle(fontSize: TextStyles.normalSize),
-        labelSmall: TextStyle(fontSize: TextStyles.minimalSize)),
-    useMaterial3: true,
+        titleLarge: TextStyle(
+          fontSize: TextStyles.titleSize,
+          color: ColorStyles.secondary500,
+        ),
+        titleMedium: TextStyle(
+          fontSize: TextStyles.subtitle1Size,
+          color: ColorStyles.secondary500,
+        ),
+        titleSmall: TextStyle(
+          fontSize: TextStyles.subtitle2Size,
+          color: ColorStyles.secondary500,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: TextStyles.normalSize,
+          color: ColorStyles.secondary500,
+        ),
+        bodySmall: TextStyle(
+          fontSize: TextStyles.minimalSize,
+          color: ColorStyles.secondary500,
+        )),
     inputDecorationTheme: InputDecorationTheme(
         labelStyle: TextStyle(fontSize: TextStyles.minimalSize),
         border: InputBorder.none,

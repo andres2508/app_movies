@@ -7,5 +7,11 @@
   "cancel": "Cancel",
   "save": "Save",
   "information": "Information",
-  "warning": "Warning"
+  "warning": "Warning",
+  "popular_movies": "Popular Movies",
+  "view_all": "View all",
+  "top_rated": "Top Rated",
+  "welcome_back": "Welcome back...",
+  "search_movie": "Search movie...",
+  "lets_relax": "Let's relax and watch a movie"
 }

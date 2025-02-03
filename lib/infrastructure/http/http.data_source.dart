@@ -47,8 +47,7 @@ class HttpDataSource {
       Map<String, dynamic>? queryParameters}) async {
     var response =
         await client.get(_getPath(path), queryParameters: queryParameters);
-    final json = jsonDecode(response.data);
-    final mapped = itemCreator(json);
+    final mapped = itemCreator(response.data);
     return Future.value(mapped);
   }
 
@@ -61,8 +60,7 @@ class HttpDataSource {
     var response = await client.post(_getPath(path),
         data: data, queryParameters: queryParameters);
     if (itemCreator != null) {
-      final json = jsonDecode(response.data);
-      return Future.value(itemCreator(json));
+      return Future.value(itemCreator(response.data));
     } else {
       return Future.value();
     }
@@ -72,8 +70,7 @@ class HttpDataSource {
       {String? path, dynamic body, ItemCreator<X>? itemCreator}) async {
     var response = await client.put(_getPath(path));
     if (itemCreator != null) {
-      final json = jsonDecode(response.data);
-      return Future.value(itemCreator(json));
+      return Future.value(itemCreator(response.data));
     } else {
       return Future.value();
     }
@@ -86,8 +83,7 @@ class HttpDataSource {
     var response =
         await client.delete(_getPath(path), queryParameters: queryParameters);
     if (itemCreator != null) {
-      final json = jsonDecode(response.data);
-      return Future.value(itemCreator(json));
+      return Future.value(itemCreator(response.data));
     } else {
       return Future.value();
     }
