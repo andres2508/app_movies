@@ -18,8 +18,10 @@ class HomeView extends ConsumerStatefulWidget {
 class _HomeViewState extends ConsumerState<HomeView> {
   @override
   void initState() {
-    ref.read(homeViewModelProvider.notifier).loadRequired();
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(homeViewModelProvider.notifier).loadRequired();
+    });
   }
 
   @override
@@ -64,9 +66,10 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     spacing: 10,
                     children: [
                       MovieBanner(
-                          title: loc.popular_movies,
-                          movies: model.popular,
-                          onSeeAll: () {}),
+                        title: loc.popular_movies,
+                        movies: model.popular,
+                        onSeeAll: () {},
+                      ),
                       MovieBanner(
                         title: loc.top_rated,
                         movies: model.topRated,
