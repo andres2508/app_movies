@@ -13,5 +13,6 @@
   "top_rated": "Top Rated",
   "welcome_back": "Welcome back...",
   "search_movie": "Search movie...",
-  "lets_relax": "Let's relax and watch a movie"
+  "lets_relax": "Let's relax and watch a movie",
+  "movie_not_found": "Movie not found..."
 }

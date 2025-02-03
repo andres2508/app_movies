@@ -18,6 +18,7 @@ class MoviePaginator extends Paginator<Movie> {
 
 @JsonSerializable()
 class Movie {
+  int id;
   String title;
   @JsonKey(name: 'original_title')
   String originalTitle;
@@ -32,7 +33,7 @@ class Movie {
   @JsonKey(name: 'vote_average')
   double voteAverage;
 
-  Movie(this.title, this.originalTitle, this.overview, this.popularity,
+  Movie(this.id, this.title, this.originalTitle, this.overview, this.popularity,
       this.backdropPath, this.posterPath, this.releaseDate, this.voteAverage);
 
   Map<String, dynamic> toJson() => _$MovieToJson(this);

@@ -3,7 +3,7 @@ import 'package:app_movies/infrastructure/paginator/paginator.model.dart';
 
 class PaginatorManager<T> {
   Paginator<T> actualPage;
-  final Future<Paginator<T>> Function(ServerPaginatorParams params) creator;
+  final Future<Paginator<T>> Function(RequestPaginatorParams params) creator;
 
   PaginatorManager.create(this.actualPage, this.creator);
 

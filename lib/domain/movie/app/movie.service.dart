@@ -1,5 +1,6 @@
 import 'package:app_movies/domain/movie/infrastructure/movie.repository.dart';
 import 'package:app_movies/domain/movie/model/movie.model.dart';
+import 'package:app_movies/domain/movie/model/movie_detail.model.dart';
 import 'package:app_movies/infrastructure/paginator/movie_paginator.params.dart';
 import 'package:app_movies/infrastructure/paginator/paginator.builder.dart';
 
@@ -8,7 +9,7 @@ class MovieService {
 
   Future<PaginatorManager<Movie>> findPopularAsPaginator() async {
     final actualPage = await _repository.findPopular(
-      params: ServerPaginatorParams.create(),
+      params: RequestPaginatorParams.create(),
     );
     return PaginatorManager.create(
         actualPage, (params) => _repository.findPopular(params: params));
@@ -16,15 +17,19 @@ class MovieService {
 
   Future<List<Movie>> principalPopularMovies() async {
     final firstPage = await _repository.findPopular(
-      params: ServerPaginatorParams.create(),
+      params: RequestPaginatorParams.create(),
     );
     return firstPage.results;
   }
 
   Future<List<Movie>> principalTopRatedMovies() async {
     final firstPage = await _repository.findTopRated(
-      params: ServerPaginatorParams.create(),
+      params: RequestPaginatorParams.create(),
     );
     return firstPage.results;
+  }
+
+  Future<MovieDetail> findById(int id) {
+    return _repository.findById(id);
   }
 }

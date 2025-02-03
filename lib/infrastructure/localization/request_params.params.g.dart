@@ -1,21 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie_paginator.params.dart';
+part of 'request_params.params.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RequestPaginatorParams _$RequestPaginatorParamsFromJson(
-        Map<String, dynamic> json) =>
-    RequestPaginatorParams(
+RequestLangParams _$RequestLangParamsFromJson(Map<String, dynamic> json) =>
+    RequestLangParams(
       json['language'] as String?,
-      (json['page'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$RequestPaginatorParamsToJson(
-        RequestPaginatorParams instance) =>
+Map<String, dynamic> _$RequestLangParamsToJson(RequestLangParams instance) =>
     <String, dynamic>{
       'language': instance.language,
-      'page': instance.page,
     };

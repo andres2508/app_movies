@@ -1,12 +1,12 @@
 import 'package:fluro/fluro.dart';
 
-class MovieRoute {
+class TMDBRoute {
   String path;
   Handler handler;
 
-  MovieRoute(this.path, this.handler);
+  TMDBRoute(this.path, this.handler);
 }
 
-abstract class MovieModule {
-  List<MovieRoute> routes();
+abstract class TMDBModule {
+  List<TMDBRoute> routes();
 }

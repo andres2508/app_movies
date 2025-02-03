@@ -13,5 +13,6 @@
   "top_rated": "Mejor Calificadas",
   "welcome_back": "Bienvenido de nuevo...",
   "search_movie": "Buscar película...",
-  "lets_relax": "Vamos a relajarnos y ver una película."
+  "lets_relax": "Vamos a relajarnos y ver una película.",
+  "movie_not_found": "La película no fue encontrada..."
 }

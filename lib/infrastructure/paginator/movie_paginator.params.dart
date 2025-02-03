@@ -5,25 +5,30 @@ import 'package:json_annotation/json_annotation.dart';
 part 'movie_paginator.params.g.dart';
 
 @JsonSerializable()
-class ServerPaginatorParams {
+class RequestPaginatorParams {
   String? language;
   int? page;
 
-  ServerPaginatorParams(this.language, this.page);
+  RequestPaginatorParams(this.language, this.page);
 
-  factory ServerPaginatorParams.create() {
+  factory RequestPaginatorParams.create() {
     final locale = serviceLocator<LocalizationObserver>().locale;
-    return ServerPaginatorParams(locale?.toLanguageTag(), 1);
+    return RequestPaginatorParams(locale?.toLanguageTag(), 1);
   }
 
-  ServerPaginatorParams withPage(int page) {
+  factory RequestPaginatorParams.onlyLang() {
+    final locale = serviceLocator<LocalizationObserver>().locale;
+    return RequestPaginatorParams(locale?.toLanguageTag(), null);
+  }
+
+  RequestPaginatorParams withPage(int page) {
     this.page = page;
     return this;
   }
 
-  Map<String, dynamic> toJson() => _$ServerPaginatorParamsToJson(this);
+  Map<String, dynamic> toJson() => _$RequestPaginatorParamsToJson(this);
 
-  factory ServerPaginatorParams.fromJson(Map<String, dynamic> json) {
-    return _$ServerPaginatorParamsFromJson(json);
+  factory RequestPaginatorParams.fromJson(Map<String, dynamic> json) {
+    return _$RequestPaginatorParamsFromJson(json);
   }
 }

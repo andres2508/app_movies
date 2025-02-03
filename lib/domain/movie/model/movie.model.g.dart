@@ -25,6 +25,7 @@ Map<String, dynamic> _$MoviePaginatorToJson(MoviePaginator instance) =>
     };
 
 Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
+      (json['id'] as num).toInt(),
       json['title'] as String,
       json['original_title'] as String,
       json['overview'] as String,
@@ -36,6 +37,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
     );
 
 Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'original_title': instance.originalTitle,
       'overview': instance.overview,

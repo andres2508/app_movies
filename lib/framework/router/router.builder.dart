@@ -5,12 +5,12 @@ import 'package:app_movies/main.dart';
 import 'package:fluro/fluro.dart';
 
 class MovieRouterBuilder {
-  final List<MovieRoute> _routes;
+  final List<TMDBRoute> _routes;
 
   MovieRouterBuilder._intern(this._routes);
 
   factory MovieRouterBuilder.initialize() {
-    final List<MovieRoute> routes = [];
+    final List<TMDBRoute> routes = [];
     // Initialize routes
     for (var module in modules) {
       routes.addAll(module.routes());

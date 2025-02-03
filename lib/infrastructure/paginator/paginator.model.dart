@@ -15,11 +15,11 @@ abstract class Paginator<T> {
 
   bool hasPreviousPage() => page >= 1;
 
-  ServerPaginatorParams nextPage() {
-    return ServerPaginatorParams.create().withPage(page + 1);
+  RequestPaginatorParams nextPage() {
+    return RequestPaginatorParams.create().withPage(page + 1);
   }
 
-  ServerPaginatorParams previousPage() {
-    return ServerPaginatorParams.create().withPage(page - 1);
+  RequestPaginatorParams previousPage() {
+    return RequestPaginatorParams.create().withPage(page - 1);
   }
 }
