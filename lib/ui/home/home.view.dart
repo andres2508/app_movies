@@ -1,3 +1,4 @@
+import 'package:app_movies/framework/viewModel/view.model.consumer.dart';
 import 'package:app_movies/styles/color.styles.dart';
 import 'package:app_movies/ui/home/home.view.model.dart';
 import 'package:app_movies/ui/home/movie_banner.widget.dart';
@@ -55,23 +56,27 @@ class _HomeViewState extends ConsumerState<HomeView> {
               ),
             ),
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  spacing: 10,
-                  children: [
-                    MovieBanner(
-                        title: loc.popular_movies,
-                        movies: model.popular,
-                        onSeeAll: () {}),
-                    MovieBanner(
-                      title: loc.top_rated,
-                      movies: model.topRated,
-                      onSeeAll: () {},
-                    )
-                  ],
-                ),
-              ),
-            ),
+                child: ViewModelConsumer<HomeViewModel>(
+              provider: model,
+              builder: (_, __) {
+                return SingleChildScrollView(
+                  child: Column(
+                    spacing: 10,
+                    children: [
+                      MovieBanner(
+                          title: loc.popular_movies,
+                          movies: model.popular,
+                          onSeeAll: () {}),
+                      MovieBanner(
+                        title: loc.top_rated,
+                        movies: model.topRated,
+                        onSeeAll: () {},
+                      )
+                    ],
+                  ),
+                );
+              },
+            )),
           ],
         ),
       ),
