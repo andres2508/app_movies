@@ -33,6 +33,10 @@ class MovieMaterialTheme {
         labelStyle: TextStyle(fontSize: TextStyles.minimalSize),
         border: InputBorder.none,
         contentPadding: const EdgeInsets.symmetric(horizontal: 10)),
+    appBarTheme: AppBarTheme(
+      backgroundColor: ColorStyles.dark500,
+      iconTheme: IconThemeData(color: ColorStyles.secondary500),
+    ),
     tabBarTheme: TabBarTheme(
       labelColor: Colors.white,
       labelStyle: TextStyle(

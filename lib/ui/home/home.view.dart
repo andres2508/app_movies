@@ -2,6 +2,7 @@ import 'package:app_movies/framework/viewModel/view.model.consumer.dart';
 import 'package:app_movies/styles/color.styles.dart';
 import 'package:app_movies/ui/home/home.view.model.dart';
 import 'package:app_movies/ui/home/movie_banner.widget.dart';
+import 'package:app_movies/utils/fluro.utils.dart';
 import 'package:app_movies/utils/locale.utils.dart';
 import 'package:app_movies/utils/theme.utils.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,6 @@ class _HomeViewState extends ConsumerState<HomeView> {
     final loc = context.loc();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorStyles.dark500,
         title: Text(
           loc.welcome_back,
           style: context.textTheme().bodySmall!.copyWith(
@@ -54,7 +54,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
             Padding(
               padding: const EdgeInsets.only(bottom: 15),
               child: SearchBar(
+                leading: Icon(Icons.search),
                 hintText: loc.search_movie,
+                onSubmitted: (value) => _onSearch(value),
               ),
             ),
             Expanded(
@@ -84,5 +86,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
         ),
       ),
     );
+  }
+
+  _onSearch(String value) {
+    context.go('/search/$value');
   }
 }

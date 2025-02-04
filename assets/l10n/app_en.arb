@@ -23,5 +23,9 @@
         "format": "decimalPattern"
       }
     }
-  }
+  },
+  "search": "Search",
+  "results": "Results",
+  "movies": "Movies",
+  "series": "TV Series"
 }

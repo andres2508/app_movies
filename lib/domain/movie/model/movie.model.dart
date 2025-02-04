@@ -1,4 +1,4 @@
-import 'package:app_movies/infrastructure/configuration/global.configuration.dart';
+import 'package:app_movies/domain/common/entity.model.dart';
 import 'package:app_movies/infrastructure/paginator/paginator.model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -17,31 +17,28 @@ class MoviePaginator extends Paginator<Movie> {
 }
 
 @JsonSerializable()
-class Movie {
-  int id;
+class Movie extends TMDBEntity {
   String title;
   @JsonKey(name: 'original_title')
   String originalTitle;
-  String overview;
-  double popularity;
-  @JsonKey(name: 'backdrop_path')
-  String backdropPath;
-  @JsonKey(name: 'poster_path')
-  String posterPath;
   @JsonKey(name: 'release_date')
   DateTime releaseDate;
-  @JsonKey(name: 'vote_average')
-  double voteAverage;
 
-  Movie(this.id, this.title, this.originalTitle, this.overview, this.popularity,
-      this.backdropPath, this.posterPath, this.releaseDate, this.voteAverage);
+  Movie(
+      this.title,
+      this.originalTitle,
+      this.releaseDate,
+      super.id,
+      super.overview,
+      super.popularity,
+      super.voteAverage,
+      super.voteCount,
+      super.posterPath,
+      super.backdropPath);
 
   Map<String, dynamic> toJson() => _$MovieToJson(this);
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return _$MovieFromJson(json);
   }
-
-  String posterUrl() =>
-      '${GlobalMovieConfiguration.controller.imageServer}$posterPath';
 }

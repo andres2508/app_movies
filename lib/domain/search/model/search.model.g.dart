@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie.model.dart';
+part of 'search.model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MoviePaginator _$MoviePaginatorFromJson(Map<String, dynamic> json) =>
-    MoviePaginator(
+SearchPaginator _$SearchPaginatorFromJson(Map<String, dynamic> json) =>
+    SearchPaginator(
       (json['page'] as num).toInt(),
       (json['total_pages'] as num).toInt(),
       (json['total_results'] as num).toInt(),
       (json['results'] as List<dynamic>)
-          .map((e) => Movie.fromJson(e as Map<String, dynamic>))
+          .map((e) => SearchEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$MoviePaginatorToJson(MoviePaginator instance) =>
+Map<String, dynamic> _$SearchPaginatorToJson(SearchPaginator instance) =>
     <String, dynamic>{
       'page': instance.page,
       'total_pages': instance.totalPages,
@@ -24,10 +24,9 @@ Map<String, dynamic> _$MoviePaginatorToJson(MoviePaginator instance) =>
       'results': instance.results.map((e) => e.toJson()).toList(),
     };
 
-Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
-      json['title'] as String,
-      json['original_title'] as String,
-      DateTime.parse(json['release_date'] as String),
+SearchEntity _$SearchEntityFromJson(Map<String, dynamic> json) => SearchEntity(
+      json['name'] as String?,
+      json['title'] as String?,
       (json['id'] as num).toInt(),
       json['overview'] as String,
       (json['popularity'] as num).toInt(),
@@ -37,7 +36,8 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       json['backdrop_path'] as String?,
     );
 
-Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
+Map<String, dynamic> _$SearchEntityToJson(SearchEntity instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'overview': instance.overview,
       'popularity': instance.popularity,
@@ -45,7 +45,6 @@ Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
       'vote_count': instance.voteCount,
       'poster_path': instance.posterPath,
       'backdrop_path': instance.backdropPath,
+      'name': instance.name,
       'title': instance.title,
-      'original_title': instance.originalTitle,
-      'release_date': instance.releaseDate.toIso8601String(),
     };
