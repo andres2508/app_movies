@@ -1,4 +1,5 @@
 import 'package:app_movies/framework/viewModel/paginator.view.model.consumer.dart';
+import 'package:app_movies/ui/common/no_content_available.widget.dart';
 import 'package:app_movies/ui/common/type_selector.widget.dart';
 import 'package:app_movies/ui/search/search.view.model.dart';
 import 'package:app_movies/ui/search/search_tile.widget.dart';
@@ -55,13 +56,15 @@ class _SearchViewState extends ConsumerState<SearchView> {
               builder: (_, __) => SingleChildScrollView(
                 key: const PageStorageKey<String>('listView'),
                 controller: _scrollController,
-                child: Wrap(
-                  spacing: 5,
+                child: model.hasItems
+                    ? Wrap(
+                        spacing: 5,
                   runSpacing: 10,
                   children: model.content
                       .map((it) => SearchTile(entity: it))
                       .toList(growable: false),
-                ),
+                      )
+                    : Center(child: NoContentAvailable()),
               ),
             ),
           )

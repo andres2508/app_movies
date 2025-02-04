@@ -1,4 +1,5 @@
 import 'package:app_movies/domain/common/entity.model.dart';
+import 'package:app_movies/ui/common/no_content_available.widget.dart';
 import 'package:app_movies/ui/common/tmdb_tile.widget.dart';
 import 'package:app_movies/utils/locale.utils.dart';
 import 'package:app_movies/utils/theme.utils.dart';
@@ -39,12 +40,14 @@ class TMDBBanner extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
+            child: content.isNotEmpty
+                ? ListView.separated(
+                    scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) => TMDBTile(entity: content[index]),
               separatorBuilder: (_, __) => const SizedBox(width: 10),
               itemCount: content.length,
-            ),
+                  )
+                : NoContentAvailable(),
           )
         ],
       ),

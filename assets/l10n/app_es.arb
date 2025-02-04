@@ -31,5 +31,6 @@
   "popular_series": "Series Populares",
   "serie_not_found": "La serie no fue encontrada...",
   "go_back": "Volver atras",
-  "without_overview": "No se encontró detalle de la descripción general del titulo."
+  "without_overview": "No se encontró detalle de la descripción general del titulo.",
+  "no_content_available": "Sin contenido disponible..."
 }

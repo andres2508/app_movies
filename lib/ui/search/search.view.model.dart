@@ -17,8 +17,9 @@ class SearchViewModel extends BaseViewModel {
   PaginatorManager<TMDBEntity>? _actualPage;
 
   List<TMDBEntity> get content => _found;
-
   TMDBContentType get currentType => _filter;
+
+  bool get hasItems => _found.isNotEmpty;
 
   void initialize(String label) {
     _searchQuery = label;
