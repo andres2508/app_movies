@@ -1,5 +1,6 @@
 import 'package:app_movies/framework/viewModel/view.model.consumer.dart';
 import 'package:app_movies/styles/color.styles.dart';
+import 'package:app_movies/ui/common/type_selector.widget.dart';
 import 'package:app_movies/ui/home/home.view.model.dart';
 import 'package:app_movies/ui/home/movie_banner.widget.dart';
 import 'package:app_movies/utils/fluro.utils.dart';
@@ -21,7 +22,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(homeViewModelProvider.notifier).loadRequired();
+      ref.read(homeViewModelProvider.notifier).loadMovieRequired();
     });
   }
 
@@ -67,14 +68,20 @@ class _HomeViewState extends ConsumerState<HomeView> {
                   child: Column(
                     spacing: 10,
                     children: [
-                      MovieBanner(
-                        title: loc.popular_movies,
-                        movies: model.popular,
+                      SearchTypeSelector(
+                        current: model.type,
+                        onChanged: (value) => model.changeType(value),
+                      ),
+                      TMDBBanner(
+                        title: model.isMovieType
+                            ? loc.popular_movies
+                            : loc.popular_series,
+                        content: model.popular,
                         onSeeAll: () {},
                       ),
-                      MovieBanner(
+                      TMDBBanner(
                         title: loc.top_rated,
-                        movies: model.topRated,
+                        content: model.topRated,
                         onSeeAll: () {},
                       )
                     ],

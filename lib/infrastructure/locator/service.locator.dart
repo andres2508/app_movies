@@ -1,5 +1,6 @@
 import 'package:app_movies/domain/movie/app/movie.service.dart';
 import 'package:app_movies/domain/search/app/search.service.dart';
+import 'package:app_movies/domain/series/app/serie.service.dart';
 import 'package:app_movies/framework/dialog/dialogs.service.dart';
 import 'package:app_movies/framework/messages/messages.service.dart';
 import 'package:app_movies/infrastructure/localization/localization.service.dart';
@@ -16,5 +17,6 @@ void setupServiceLocator() {
   serviceLocator.registerSingleton(LocalizationObserver());
   // Domain Services
   serviceLocator.registerSingleton(MovieService());
+  serviceLocator.registerSingleton(SerieService());
   serviceLocator.registerSingleton(SearchService());
 }

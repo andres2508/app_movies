@@ -1,17 +1,17 @@
-import 'package:app_movies/domain/movie/model/movie.model.dart';
-import 'package:app_movies/ui/common/movie_tile.widget.dart';
+import 'package:app_movies/domain/common/entity.model.dart';
+import 'package:app_movies/ui/common/tmdb_tile.widget.dart';
 import 'package:app_movies/utils/locale.utils.dart';
 import 'package:app_movies/utils/theme.utils.dart';
 import 'package:flutter/material.dart';
 
-class MovieBanner extends StatelessWidget {
+class TMDBBanner extends StatelessWidget {
   final String title;
-  final List<Movie> movies;
+  final List<TMDBEntity> content;
   final VoidCallback onSeeAll;
 
-  const MovieBanner(
+  const TMDBBanner(
       {required this.title,
-      required this.movies,
+      required this.content,
       required this.onSeeAll,
       super.key});
 
@@ -41,9 +41,9 @@ class MovieBanner extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (_, index) => MovieTile(movie: movies[index]),
+              itemBuilder: (_, index) => TMDBTile(entity: content[index]),
               separatorBuilder: (_, __) => const SizedBox(width: 10),
-              itemCount: movies.length,
+              itemCount: content.length,
             ),
           )
         ],

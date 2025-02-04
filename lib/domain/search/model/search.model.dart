@@ -42,4 +42,7 @@ class SearchEntity extends TMDBEntity {
   factory SearchEntity.fromJson(Map<String, dynamic> json) {
     return _$SearchEntityFromJson(json);
   }
+
+  @override
+  String getName() => name ?? title ?? 'N/A';
 }

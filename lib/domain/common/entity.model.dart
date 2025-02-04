@@ -20,6 +20,8 @@ abstract class TMDBEntity {
   String posterUrl() =>
       '${GlobalMovieConfiguration.controller.imageServer}$posterPath';
 
+  String getName();
+
   @override
   int get hashCode => id.hashCode;
 }

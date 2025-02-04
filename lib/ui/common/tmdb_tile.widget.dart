@@ -1,20 +1,20 @@
-import 'package:app_movies/domain/movie/model/movie.model.dart';
+import 'package:app_movies/domain/common/entity.model.dart';
 import 'package:app_movies/infrastructure/configuration/global.configuration.dart';
 import 'package:app_movies/utils/fluro.utils.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class MovieTile extends StatelessWidget {
-  final Movie movie;
+class TMDBTile extends StatelessWidget {
+  final TMDBEntity entity;
 
-  const MovieTile({required this.movie, super.key});
+  const TMDBTile({required this.entity, super.key});
 
   @override
   Widget build(BuildContext context) {
     final accessToken = GlobalMovieConfiguration.controller.accessToken;
     final size = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () => context.go('/movie/${movie.id}'),
+      onTap: () => context.go('/movie/${entity.id}'),
       child: SizedBox(
         width: 200,
         child: Column(
@@ -25,7 +25,7 @@ class MovieTile extends StatelessWidget {
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
                 height: size.height * 0.34,
-                imageUrl: movie.posterUrl(),
+                imageUrl: entity.posterUrl(),
                 placeholder: (_, __) =>
                     Center(child: CircularProgressIndicator()),
                 errorWidget: (_, __, ___) => Icon(Icons.error),
@@ -34,7 +34,7 @@ class MovieTile extends StatelessWidget {
             ),
             Flexible(
               child: Text(
-                movie.title,
+                entity.getName(),
                 overflow: TextOverflow.ellipsis,
               ),
             )

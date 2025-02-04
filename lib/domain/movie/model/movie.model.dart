@@ -41,4 +41,7 @@ class Movie extends TMDBEntity {
   factory Movie.fromJson(Map<String, dynamic> json) {
     return _$MovieFromJson(json);
   }
+
+  @override
+  String getName() => title;
 }
