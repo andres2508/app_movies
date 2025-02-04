@@ -12,6 +12,7 @@ class MovieTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final accessToken = GlobalMovieConfiguration.controller.accessToken;
+    final size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () => context.go('/movie/${movie.id}'),
       child: SizedBox(
@@ -23,8 +24,10 @@ class MovieTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
+                height: size.height * 0.34,
                 imageUrl: movie.posterUrl(),
-                placeholder: (_, __) => CircularProgressIndicator(),
+                placeholder: (_, __) =>
+                    Center(child: CircularProgressIndicator()),
                 errorWidget: (_, __, ___) => Icon(Icons.error),
                 httpHeaders: {'Authorization': 'Bearer $accessToken'},
               ),
