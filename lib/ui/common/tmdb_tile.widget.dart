@@ -1,7 +1,7 @@
 import 'package:app_movies/domain/common/entity.model.dart';
 import 'package:app_movies/infrastructure/configuration/global.configuration.dart';
+import 'package:app_movies/ui/common/web_image.widget.dart';
 import 'package:app_movies/utils/fluro.utils.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class TMDBTile extends StatelessWidget {
@@ -24,15 +24,10 @@ class TMDBTile extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: CachedNetworkImage(
-                fit: BoxFit.fill,
+              child: WebImage(
+                path: entity.posterUrl(),
                 height: size.height * 0.34,
-                imageUrl: entity.posterUrl(),
-                placeholder: (_, __) =>
-                    Center(child: CircularProgressIndicator()),
-                errorWidget: (_, __, ___) =>
-                    Icon(Icons.error, color: Colors.white),
-                httpHeaders: {'Authorization': 'Bearer $accessToken'},
+                width: size.width,
               ),
             ),
             Flexible(

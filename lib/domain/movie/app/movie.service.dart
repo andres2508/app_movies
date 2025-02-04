@@ -15,6 +15,14 @@ class MovieService {
         actualPage, (params) => _repository.findPopular(params: params));
   }
 
+  Future<PaginatorManager<Movie>> findTopRatedAsPaginator() async {
+    final actualPage = await _repository.findTopRated(
+      params: RequestPaginatorParams.create(),
+    );
+    return PaginatorManager.create(
+        actualPage, (params) => _repository.findPopular(params: params));
+  }
+
   Future<List<Movie>> principalPopularMovies() async {
     final firstPage = await _repository.findPopular(
       params: RequestPaginatorParams.create(),

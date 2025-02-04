@@ -15,6 +15,14 @@ class SerieService {
         actualPage, (params) => _repository.findPopular(params: params));
   }
 
+  Future<PaginatorManager<TVSerie>> findTopRatedAsPaginator() async {
+    final actualPage = await _repository.findTopRated(
+      params: RequestPaginatorParams.create(),
+    );
+    return PaginatorManager.create(
+        actualPage, (params) => _repository.findPopular(params: params));
+  }
+
   Future<List<TVSerie>> principalPopularTVSeries() async {
     final firstPage = await _repository.findPopular(
       params: RequestPaginatorParams.create(),

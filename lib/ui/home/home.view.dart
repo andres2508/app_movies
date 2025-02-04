@@ -77,12 +77,16 @@ class _HomeViewState extends ConsumerState<HomeView> {
                             ? loc.popular_movies
                             : loc.popular_series,
                         content: model.popular,
-                        onSeeAll: () {},
+                        onSeeAll: () => model.isMovieType
+                            ? context.go('/movie-popular')
+                            : context.go('/series-popular'),
                       ),
                       TMDBBanner(
                         title: loc.top_rated,
                         content: model.topRated,
-                        onSeeAll: () {},
+                        onSeeAll: () => model.isMovieType
+                            ? context.go('/movie-top-rated')
+                            : context.go('/series-top-rated'),
                       )
                     ],
                   ),
