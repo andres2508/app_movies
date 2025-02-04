@@ -14,7 +14,9 @@ class TMDBTile extends StatelessWidget {
     final accessToken = GlobalMovieConfiguration.controller.accessToken;
     final size = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () => context.go('/movie/${entity.id}'),
+      onTap: () => entity.isMovie()
+          ? context.go('/movie/${entity.id}')
+          : context.go('/series/${entity.id}'),
       child: SizedBox(
         width: 200,
         child: Column(
@@ -28,7 +30,8 @@ class TMDBTile extends StatelessWidget {
                 imageUrl: entity.posterUrl(),
                 placeholder: (_, __) =>
                     Center(child: CircularProgressIndicator()),
-                errorWidget: (_, __, ___) => Icon(Icons.error),
+                errorWidget: (_, __, ___) =>
+                    Icon(Icons.error, color: Colors.white),
                 httpHeaders: {'Authorization': 'Bearer $accessToken'},
               ),
             ),

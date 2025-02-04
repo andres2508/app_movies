@@ -1,5 +1,6 @@
 import 'package:app_movies/domain/series/infrastructure/serie.repository.dart';
 import 'package:app_movies/domain/series/model/serie.model.dart';
+import 'package:app_movies/domain/series/model/serie_detail.model.dart';
 import 'package:app_movies/infrastructure/paginator/movie_paginator.params.dart';
 import 'package:app_movies/infrastructure/paginator/paginator.builder.dart';
 
@@ -26,5 +27,9 @@ class SerieService {
       params: RequestPaginatorParams.create(),
     );
     return firstPage.results;
+  }
+
+  Future<TVSerieDetail> findById(int id) {
+    return _repository.findById(id);
   }
 }

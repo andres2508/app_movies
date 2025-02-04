@@ -26,7 +26,10 @@
   },
   "search": "Buscar",
   "results": "Resultados",
-  "movies": "Peliculas",
+  "movies": "Películas",
   "series": "TV Series",
-  "popular_series": "Series Populares"
+  "popular_series": "Series Populares",
+  "serie_not_found": "La serie no fue encontrada...",
+  "go_back": "Volver atras",
+  "without_overview": "No se encontró detalle de la descripción general del titulo."
 }

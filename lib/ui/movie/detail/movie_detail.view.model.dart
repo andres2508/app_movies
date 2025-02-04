@@ -4,7 +4,7 @@ import 'package:app_movies/framework/viewModel/base.view.model.dart';
 import 'package:app_movies/infrastructure/locator/service.locator.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final movieDetailViewModelProvider = ChangeNotifierProvider((ref) {
+final movieDetailViewModelProvider = ChangeNotifierProvider.autoDispose((ref) {
   return MovieDetailViewModel();
 });
 

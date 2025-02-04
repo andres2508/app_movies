@@ -1,15 +1,19 @@
+import 'package:app_movies/domain/genre/model/genre.model.dart';
 import 'package:app_movies/ui/common/chip.widget.dart';
-import 'package:app_movies/ui/movie/detail/movie_detail.view.model.dart';
+import 'package:app_movies/utils/locale.utils.dart';
 import 'package:app_movies/utils/theme.utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MovieDetailContent extends ConsumerWidget {
-  const MovieDetailContent({super.key});
+class DetailInfoContent extends StatelessWidget {
+  final String title;
+  final String overview;
+  final List<Genre>? genres;
+
+  const DetailInfoContent(
+      {required this.title, required this.overview, this.genres, super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final movieDetail = ref.watch(movieDetailViewModelProvider).movie!;
+  Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -22,20 +26,22 @@ class MovieDetailContent extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                movieDetail.title,
+                title,
                 style: context.textTheme().titleMedium,
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
+              genres != null
+                  ? SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
                 child: Row(
                   spacing: 10,
-                  children: movieDetail.genres
-                      .map((it) => LabelChip(label: it.name))
+                        children: genres!
+                            .map((it) => LabelChip(label: it.name))
                       .toList(growable: false),
                 ),
-              ),
+                    )
+                  : SizedBox.shrink(),
               Text(
-                movieDetail.overview,
+                overview.isNotEmpty ? overview : context.loc().without_overview,
                 textAlign: TextAlign.justify,
               )
             ],

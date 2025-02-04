@@ -31,4 +31,6 @@ abstract class TMDBEntity {
 
   @override
   int get hashCode => id.hashCode;
+
+  bool isMovie() => getType() == TMDBContentType.MOVIE;
 }

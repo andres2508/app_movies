@@ -28,5 +28,8 @@
   "results": "Results",
   "movies": "Movies",
   "series": "TV Series",
-  "popular_series": "Popular Series"
+  "popular_series": "Popular Series",
+  "serie_not_found": "Serie not found...",
+  "go_back": "Go back",
+  "without_overview": "No general description details were found for the title."
 }
