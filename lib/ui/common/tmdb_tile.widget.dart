@@ -1,5 +1,4 @@
 import 'package:app_movies/domain/common/entity.model.dart';
-import 'package:app_movies/infrastructure/configuration/global.configuration.dart';
 import 'package:app_movies/ui/common/web_image.widget.dart';
 import 'package:app_movies/utils/fluro.utils.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,6 @@ class TMDBTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final accessToken = GlobalMovieConfiguration.controller.accessToken;
     final size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () => entity.isMovie()
