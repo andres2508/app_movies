@@ -1,10 +1,10 @@
-import 'package:app_movies/domain/search/model/search.model.dart';
+import 'package:app_movies/domain/common/entity.model.dart';
 import 'package:app_movies/infrastructure/configuration/global.configuration.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class SearchTile extends StatelessWidget {
-  final SearchEntity entity;
+  final TMDBEntity entity;
 
   const SearchTile({required this.entity, super.key});
 
@@ -32,7 +32,7 @@ class SearchTile extends StatelessWidget {
           ),
           Flexible(
             child: Text(
-              entity.title ?? entity.name ?? 'N/A',
+              entity.getName(),
               overflow: TextOverflow.ellipsis,
             ),
           )

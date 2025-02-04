@@ -27,7 +27,8 @@ Map<String, dynamic> _$MoviePaginatorToJson(MoviePaginator instance) =>
 Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       json['title'] as String,
       json['original_title'] as String,
-      DateTime.parse(json['release_date'] as String),
+      _$JsonConverterFromJson<String, DateTime?>(
+          json['release_date'], const DateTimeConverter().fromJson),
       (json['id'] as num).toInt(),
       json['overview'] as String,
       (json['popularity'] as num).toInt(),
@@ -47,5 +48,11 @@ Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
       'backdrop_path': instance.backdropPath,
       'title': instance.title,
       'original_title': instance.originalTitle,
-      'release_date': instance.releaseDate.toIso8601String(),
+      'release_date': const DateTimeConverter().toJson(instance.releaseDate),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);

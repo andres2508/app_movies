@@ -1,5 +1,5 @@
+import 'package:app_movies/domain/common/entity.model.dart';
 import 'package:app_movies/domain/search/app/search.service.dart';
-import 'package:app_movies/domain/search/model/search.model.dart';
 import 'package:app_movies/framework/viewModel/base.view.model.dart';
 import 'package:app_movies/infrastructure/locator/service.locator.dart';
 import 'package:app_movies/infrastructure/paginator/paginator.builder.dart';
@@ -11,14 +11,14 @@ final searchViewModelProvider = ChangeNotifierProvider.autoDispose((_) {
 
 class SearchViewModel extends BaseViewModel {
   final SearchService _service = serviceLocator<SearchService>();
-  final List<SearchEntity> _found = [];
+  final List<TMDBEntity> _found = [];
   String _searchQuery = '';
-  SearchType _filter = SearchType.MOVIE;
-  PaginatorManager<SearchEntity>? _actualPage;
+  TMDBContentType _filter = TMDBContentType.MOVIE;
+  PaginatorManager<TMDBEntity>? _actualPage;
 
-  List<SearchEntity> get content => _found;
+  List<TMDBEntity> get content => _found;
 
-  SearchType get currentType => _filter;
+  TMDBContentType get currentType => _filter;
 
   void initialize(String label) {
     _searchQuery = label;
@@ -42,13 +42,13 @@ class SearchViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  changeType(SearchType value) {
+  changeType(TMDBContentType value) {
     _filter = value;
     switch (_filter) {
-      case SearchType.MOVIE:
+      case TMDBContentType.MOVIE:
         searchMovies();
         break;
-      case SearchType.TV_SERIE:
+      case TMDBContentType.TV_SERIE:
         searchSeries();
         break;
     }

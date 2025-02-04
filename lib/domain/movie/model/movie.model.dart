@@ -1,4 +1,5 @@
 import 'package:app_movies/domain/common/entity.model.dart';
+import 'package:app_movies/infrastructure/json/json_date.converter.dart';
 import 'package:app_movies/infrastructure/paginator/paginator.model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -22,7 +23,8 @@ class Movie extends TMDBEntity {
   @JsonKey(name: 'original_title')
   String originalTitle;
   @JsonKey(name: 'release_date')
-  DateTime releaseDate;
+  @DateTimeConverter()
+  DateTime? releaseDate;
 
   Movie(
       this.title,
@@ -44,4 +46,7 @@ class Movie extends TMDBEntity {
 
   @override
   String getName() => title;
+
+  @override
+  TMDBContentType getType() => TMDBContentType.MOVIE;
 }

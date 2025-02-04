@@ -1,6 +1,5 @@
 import 'package:app_movies/domain/common/entity.model.dart';
 import 'package:app_movies/domain/movie/app/movie.service.dart';
-import 'package:app_movies/domain/search/model/search.model.dart';
 import 'package:app_movies/domain/series/app/serie.service.dart';
 import 'package:app_movies/framework/viewModel/base.view.model.dart';
 import 'package:app_movies/infrastructure/locator/service.locator.dart';
@@ -16,15 +15,15 @@ class HomeViewModel extends BaseViewModel {
 
   final List<TMDBEntity> _topRated = [];
   final List<TMDBEntity> _popular = [];
-  SearchType _searchType = SearchType.MOVIE;
+  TMDBContentType _searchType = TMDBContentType.MOVIE;
 
   List<TMDBEntity> get topRated => _topRated;
 
   List<TMDBEntity> get popular => _popular;
 
-  SearchType get type => _searchType;
+  TMDBContentType get type => _searchType;
 
-  bool get isMovieType => _searchType == SearchType.MOVIE;
+  bool get isMovieType => _searchType == TMDBContentType.MOVIE;
 
   Future<void> loadMovieRequired() async {
     await run(() async {
@@ -54,17 +53,17 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  changeType(SearchType value) {
+  changeType(TMDBContentType value) {
     // Clear all selections
     _popular.clear();
     _topRated.clear();
     // Update and load by type
     _searchType = value;
     switch (_searchType) {
-      case SearchType.MOVIE:
+      case TMDBContentType.MOVIE:
         loadMovieRequired();
         break;
-      case SearchType.TV_SERIE:
+      case TMDBContentType.TV_SERIE:
         loadSeriesRequired();
         break;
     }

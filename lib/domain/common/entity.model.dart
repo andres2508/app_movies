@@ -1,6 +1,11 @@
 import 'package:app_movies/infrastructure/configuration/global.configuration.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+enum TMDBContentType {
+  MOVIE,
+  TV_SERIE;
+}
+
 abstract class TMDBEntity {
   int id;
   String overview;
@@ -21,6 +26,8 @@ abstract class TMDBEntity {
       '${GlobalMovieConfiguration.controller.imageServer}$posterPath';
 
   String getName();
+
+  TMDBContentType getType();
 
   @override
   int get hashCode => id.hashCode;

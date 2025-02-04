@@ -27,7 +27,8 @@ Map<String, dynamic> _$TVSeriePaginatorToJson(TVSeriePaginator instance) =>
 TVSerie _$TVSerieFromJson(Map<String, dynamic> json) => TVSerie(
       json['name'] as String,
       json['original_name'] as String,
-      DateTime.parse(json['first_air_date'] as String),
+      _$JsonConverterFromJson<String, DateTime?>(
+          json['first_air_date'], const DateTimeConverter().fromJson),
       (json['id'] as num).toInt(),
       json['overview'] as String,
       (json['popularity'] as num).toInt(),
@@ -47,5 +48,11 @@ Map<String, dynamic> _$TVSerieToJson(TVSerie instance) => <String, dynamic>{
       'backdrop_path': instance.backdropPath,
       'name': instance.name,
       'original_name': instance.originalName,
-      'first_air_date': instance.firstAirDate.toIso8601String(),
+      'first_air_date': const DateTimeConverter().toJson(instance.firstAirDate),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);

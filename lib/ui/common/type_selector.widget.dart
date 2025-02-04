@@ -1,12 +1,12 @@
-import 'package:app_movies/domain/search/model/search.model.dart';
+import 'package:app_movies/domain/common/entity.model.dart';
 import 'package:app_movies/styles/color.styles.dart';
 import 'package:app_movies/utils/locale.utils.dart';
 import 'package:app_movies/utils/theme.utils.dart';
 import 'package:flutter/material.dart';
 
 class SearchTypeSelector extends StatelessWidget {
-  final SearchType current;
-  final Function(SearchType changed) onChanged;
+  final TMDBContentType current;
+  final Function(TMDBContentType changed) onChanged;
 
   const SearchTypeSelector(
       {required this.current, required this.onChanged, super.key});
@@ -23,12 +23,12 @@ class SearchTypeSelector extends StatelessWidget {
       ),
       segments: [
         ButtonSegment(
-          value: SearchType.MOVIE,
+          value: TMDBContentType.MOVIE,
           label: Text(loc.movies, style: style),
           icon: Icon(Icons.movie),
         ),
         ButtonSegment(
-          value: SearchType.TV_SERIE,
+          value: TMDBContentType.TV_SERIE,
           label: Text(
             loc.series,
             style: style,

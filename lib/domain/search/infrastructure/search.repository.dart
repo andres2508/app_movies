@@ -1,23 +1,24 @@
+import 'package:app_movies/domain/movie/model/movie.model.dart';
 import 'package:app_movies/domain/search/infrastructure/search.params.dart';
-import 'package:app_movies/domain/search/model/search.model.dart';
+import 'package:app_movies/domain/series/model/serie.model.dart';
 import 'package:app_movies/infrastructure/http/http.data_source.dart';
 
 class SearchRepository extends HttpDataSource {
   SearchRepository() : super('/search');
 
-  Future<SearchPaginator> searchMoviesWith(SearchParams params) {
+  Future<MoviePaginator> searchMoviesWith(SearchParams params) {
     return getItem(
       path: 'movie',
       queryParameters: params.toJson(),
-      itemCreator: SearchPaginator.fromJson,
+      itemCreator: MoviePaginator.fromJson,
     );
   }
 
-  Future<SearchPaginator> searchSeriesWith(SearchParams params) {
+  Future<TVSeriePaginator> searchSeriesWith(SearchParams params) {
     return getItem(
       path: 'tv',
       queryParameters: params.toJson(),
-      itemCreator: SearchPaginator.fromJson,
+      itemCreator: TVSeriePaginator.fromJson,
     );
   }
 }
