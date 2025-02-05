@@ -1,5 +1,7 @@
 class GlobalMovieConfiguration {
-  final String _server = const String.fromEnvironment('server');
+  // Default is only for widget test
+  final String _server =
+      const String.fromEnvironment('server', defaultValue: 'http://localhost');
   final String _imageServer = const String.fromEnvironment('image_server');
   final String _accessToken = const String.fromEnvironment('access_token');
   final String _apiKey = const String.fromEnvironment('api_key');
