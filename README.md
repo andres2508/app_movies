@@ -58,7 +58,7 @@ archivo de configuración previamente definido.
 dart run flutter_native_splash:create --path=splash_screen_config.yaml
 ```
 
-## Evidence:
+## Funcionalities:
 
 ### Home View (Popular and Top Rated):
 
